@@ -14,3 +14,13 @@ Studio želi odgovoriti na sljedeća pitanja:
 - Koje kombinacije audio značajki Studio treba targetirati pri produkciji novih pjesama kako bi one bile što kompetitivnije?
 - Što slušatelji/publika očekuju od određenog žanra.
 - Koji je idealan omjer različitih audio karatkteristika za različite vrste pjesama / žanrova.
+
+
+## Tablica kardinalnosti veza:
+
+| Entitet A | Veza       | Entitet B | Tip | Obrazloženje                                                                                                                        |
+| --------- | ---------- | --------- | --- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| ZANR      | Pripada    | PJESMA    | 1:M | Jedan žanr obuhvaća više pjesama; svaka pjesma pripada točno jednom žanru                                                           |
+| ALBUM     | Sadrži     | PJESMA    | 1:M | Jedan album sadrži više pjesama; svaka pjesma pripada točno jednom albumu                                                           |
+| IZVODJAC  | Izvodi     | PJESMA    | M:M | Jedan izvođač izvodi više pjesama; jedna pjesma može imati više izvođača — razrješava se asocijativnom tablicom IZVODJAC_PJESMA     |
+| IZVODJAC  | Objavljuje | ALBUM     | M:M | Jedan izvođač može objaviti više albuma; jedan album može imati više izvođača — razrješava se asocijativnom tablicom IZVODJAC_ALBUM |
